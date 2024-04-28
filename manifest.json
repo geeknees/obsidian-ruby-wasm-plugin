@@ -1,11 +1,10 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"id": "ruby-wasm-plugin",
+	"name": "ruby.wasm",
+	"version": "0.0.1",
+	"minAppVersion": "0.0.1",
+	"description": "Run ruby code in your notes using WebAssembly",
+	"author": "geeknees",
+	"authorUrl": "https://github.com/geeknees/",
 	"isDesktopOnly": false
 }
