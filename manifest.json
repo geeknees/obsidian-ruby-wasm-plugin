@@ -1,5 +1,5 @@
 {
-	"id": "ruby-wasm-plugin",
+	"id": "ruby-wasm",
 	"name": "ruby.wasm",
 	"version": "0.0.1",
 	"minAppVersion": "0.0.1",
