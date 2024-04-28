@@ -13,7 +13,6 @@ Execute command
 Get Results
 ![](./screenshot/step3.png "Get Results")
 
-
 ## API Documentation
 
 See https://github.com/obsidianmd/obsidian-api
