@@ -54,7 +54,7 @@ export default class RubyWasmPlugin extends Plugin {
 
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
-			id: "run-in-modal-command",
+			id: "run-in-modal",
 			name: "Run in Modal",
 			editorCallback: (editor: Editor) => {
 				const code = editor.getSelection();
@@ -71,7 +71,7 @@ export default class RubyWasmPlugin extends Plugin {
 
 		// This adds an editor command that can perform some operation on the current editor instance
 		this.addCommand({
-			id: "run-in-editor-command",
+			id: "run-in-editor",
 			name: "Run in Editor",
 			editorCallback: (editor: Editor, view: MarkdownView) => {
 				const code = editor.getSelection();
@@ -152,8 +152,11 @@ class CodeModal extends Modal {
 		});
 		resultElement.textContent = this.result || "result";
 
-		const closeButton = contentEl.createEl("button", { text: "Close" });
-		closeButton.style.cssText = "float: right;";
+		const closeButton = contentEl.createEl("button", {
+			cls: "modal-button",
+			attr: { type: "button" },
+			text: "Close",
+		});
 		closeButton.addEventListener("click", () => {
 			this.close();
 		});
