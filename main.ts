@@ -1,28 +1,8 @@
-import {
-	App,
-	Editor,
-	MarkdownView,
-	Modal,
-	Plugin,
-	PluginSettingTab,
-	Setting,
-} from "obsidian";
+import { App, Editor, MarkdownView, Modal, Plugin } from "obsidian";
 
 import { DefaultRubyVM } from "@ruby/wasm-wasi/dist/browser";
 
-// Remember to rename these classes and interfaces!
-
-interface RubyWasmPluginSettings {
-	mySetting: string;
-}
-
-const DEFAULT_SETTINGS: RubyWasmPluginSettings = {
-	mySetting: "default",
-};
-
 export default class RubyWasmPlugin extends Plugin {
-	settings: RubyWasmPluginSettings;
-
 	// Function to check if inside code block
 	isInCodeBlock = (editor: Editor, line: number) => {
 		const totalLines = editor.lineCount();
@@ -44,8 +24,6 @@ export default class RubyWasmPlugin extends Plugin {
 	};
 
 	async onload() {
-		await this.loadSettings();
-
 		const response = await fetch(
 			"https://cdn.jsdelivr.net/npm/@ruby/3.3-wasm-wasi@2.5.1/dist/ruby+stdlib.wasm"
 		);
@@ -95,9 +73,6 @@ export default class RubyWasmPlugin extends Plugin {
 			},
 		});
 
-		// This adds a settings tab so the user can configure various aspects of the plugin
-		this.addSettingTab(new RubyWasmSettingTab(this.app, this));
-
 		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
 		// Using this function will automatically remove the event listener when this plugin is disabled.
 		// this.registerDomEvent(document, "click", (evt: MouseEvent) => {
@@ -111,18 +86,6 @@ export default class RubyWasmPlugin extends Plugin {
 	}
 
 	onunload() {}
-
-	async loadSettings() {
-		this.settings = Object.assign(
-			{},
-			DEFAULT_SETTINGS,
-			await this.loadData()
-		);
-	}
-
-	async saveSettings() {
-		await this.saveData(this.settings);
-	}
 }
 
 class CodeModal extends Modal {
@@ -165,32 +128,5 @@ class CodeModal extends Modal {
 	onClose() {
 		const { contentEl } = this;
 		contentEl.empty();
-	}
-}
-
-class RubyWasmSettingTab extends PluginSettingTab {
-	plugin: RubyWasmPlugin;
-
-	constructor(app: App, plugin: RubyWasmPlugin) {
-		super(app, plugin);
-		this.plugin = plugin;
-	}
-
-	display(): void {
-		const { containerEl } = this;
-
-		containerEl.empty();
-
-		new Setting(containerEl).setName("ruby.wasm");
-		// .setDesc("It's a secret");
-		// .addText((text) =>
-		// 	text
-		// 		.setPlaceholder("Enter your secret")
-		// 		.setValue(this.plugin.settings.mySetting)
-		// 		.onChange(async (value) => {
-		// 			this.plugin.settings.mySetting = value;
-		// 			await this.plugin.saveSettings();
-		// 		})
-		// );
 	}
 }
