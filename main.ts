@@ -1,6 +1,6 @@
 import { App, Editor, MarkdownView, Modal, Plugin } from "obsidian";
-
 import { DefaultRubyVM } from "@ruby/wasm-wasi/dist/browser";
+import rubyWASM from "./assets/ruby.wasm";
 
 export default class RubyWasmPlugin extends Plugin {
 	// Function to check if inside code block
@@ -24,10 +24,7 @@ export default class RubyWasmPlugin extends Plugin {
 	};
 
 	async onload() {
-		const response = await fetch(
-			"https://cdn.jsdelivr.net/npm/@ruby/3.3-wasm-wasi@2.5.1/dist/ruby+stdlib.wasm"
-		);
-		const module = await WebAssembly.compileStreaming(response);
+		const module = await WebAssembly.compile(rubyWASM);
 		const { vm } = await DefaultRubyVM(module);
 
 		// This adds a simple command that can be triggered anywhere
