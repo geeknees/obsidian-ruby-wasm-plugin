@@ -1,6 +1,6 @@
 /*
-ABOUTME: Styles modal output for the Obsidian ruby.wasm plugin.
-ABOUTME: Keeps runtime output readable without inline styles in the TypeScript code.
+ABOUTME: Styles modal and inline REPL output for the Obsidian ruby.wasm plugin.
+ABOUTME: Keeps runtime output, play buttons, and execution panels readable in preview.
 
 This CSS file will be included with your plugin, and
 available in the app when your plugin is enabled.
@@ -14,5 +14,57 @@ button.modal-button {
 }
 
 .ruby-output {
+	margin-top: 0.75rem;
+}
+
+.ruby-repl-block {
+	margin: 1em 0;
+}
+
+.ruby-repl-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.ruby-repl-run-button {
+	padding: 0.25rem 0.75rem;
+}
+
+.ruby-repl-runtime,
+.ruby-execution-runtime {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+.ruby-repl-panel.is-empty {
+	display: none;
+}
+
+.ruby-repl-panel.is-loading,
+.ruby-execution {
+	display: block;
+}
+
+.ruby-execution-status,
+.ruby-execution-label {
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-medium);
+}
+
+.ruby-execution-section {
+	margin-top: 0.75rem;
+}
+
+.ruby-execution-body {
 	white-space: pre-wrap;
+	margin: 0.25rem 0 0;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	background-color: var(--background-secondary);
+}
+
+.ruby-execution-section.is-error .ruby-execution-body {
+	color: var(--text-error);
 }

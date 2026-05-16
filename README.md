@@ -16,6 +16,14 @@ Currently supported:
 - Ruby 3.3
 - Ruby 3.2
 
+## Features
+
+- Run the selected Ruby code from the editor
+- Run the whole current Ruby code block when nothing is selected
+- Show stdout, stderr, return value, and errors separately
+- Add a Run button under rendered `ruby` code blocks for a lightweight REPL flow
+- Choose the Ruby runtime version from plugin settings
+
 # How to use
 
 Select a code block
