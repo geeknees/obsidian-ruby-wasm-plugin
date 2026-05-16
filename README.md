@@ -2,6 +2,28 @@
 
 This is a ruby.wasm plugin for Obsidian (https://obsidian.md).
 
+The plugin downloads the selected Ruby WebAssembly runtime from jsDelivr the first time you run a command so the shipped `main.js` stays small enough for Obsidian Sync.
+
+## Ruby versions
+
+You can choose the runtime version in **Settings -> Community plugins -> ruby.wasm**.
+
+Currently supported:
+
+- Ruby HEAD
+- Ruby 4.0
+- Ruby 3.4
+- Ruby 3.3
+- Ruby 3.2
+
+## Features
+
+- Run the selected Ruby code from the editor
+- Run the whole current Ruby code block when nothing is selected
+- Show stdout, stderr, return value, and errors separately
+- Add a Run button under rendered `ruby` code blocks for a lightweight REPL flow
+- Choose the Ruby runtime version from plugin settings
+
 # How to use
 
 Select a code block
