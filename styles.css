@@ -1,4 +1,6 @@
 /*
+ABOUTME: Styles modal output for the Obsidian ruby.wasm plugin.
+ABOUTME: Keeps runtime output readable without inline styles in the TypeScript code.
 
 This CSS file will be included with your plugin, and
 available in the app when your plugin is enabled.
@@ -9,4 +11,8 @@ If your plugin does not need CSS, delete this file.
 button.modal-button {
 	float: right;
 	margin: 0.75em 0;
+}
+
+.ruby-output {
+	white-space: pre-wrap;
 }

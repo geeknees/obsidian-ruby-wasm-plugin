@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-ruby.wasm-plugin",
 	"version": "0.0.1",
-	"description": "This is a ruby.wasm plugin for Obsidian (https://obsidian.md)",
+	"description": "This is a ruby.wasm plugin for Obsidian (https://obsidian.md).",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -15,7 +15,6 @@
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
 		"@typescript-eslint/parser": "5.29.0",
-		"builtin-modules": "3.3.0",
 		"esbuild": "0.17.3",
 		"obsidian": "latest",
 		"tslib": "2.4.0",
@@ -23,7 +22,6 @@
 	},
 	"dependencies": {
 		"@bjorn3/browser_wasi_shim": "^0.3.0",
-		"@ruby/3.3-wasm-wasi": "^2.5.1",
-		"@ruby/wasm-wasi": "^2.5.1"
+		"@ruby/wasm-wasi": "^2.9.3-2.9.4"
 	}
 }

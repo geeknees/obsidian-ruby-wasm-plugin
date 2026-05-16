@@ -3,7 +3,7 @@
 	"name": "ruby.wasm",
 	"version": "0.0.1",
 	"minAppVersion": "1.5.12",
-	"description": "Run ruby code in your notes using WebAssembly",
+	"description": "Run ruby code in your notes using WebAssembly.",
 	"author": "geeknees",
 	"authorUrl": "https://github.com/geeknees/",
 	"isDesktopOnly": false
